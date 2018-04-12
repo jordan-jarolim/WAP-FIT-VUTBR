@@ -1,0 +1,52 @@
+/* Here we defines some basic var */
+/* ----------------------------------------------------------- */
+:root {
+    --number-of-attributes:4; 
+}
+
+/* Styles for JS filter */
+/* ----------------------------------------------------------- */
+
+/* Main filter container */
+.container.list .user-filter{
+    padding-bottom: 16px;
+    margin-bottom: 6px;
+    border-bottom:1px solid #ECEFF1;
+}
+
+/* Style textareas and inputs */
+.container.list .user-filter textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+
+/* Style dropdown select */
+.container.list .user-filter select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;      
+    background-color:#fff;
+    border:none;
+    border-radius:0;
+    border-bottom:solid 1px #607D8B;
+    cursor: pointer;
+ }
+
+/* Each filter input */
+.container.list .user-filter > * {
+    width: calc((100%/var(--number-of-attributes) - 16px));
+    margin-right:16px;
+    float:left;
+}
+
+/* Specific filter input with 2 falues (from-to) */
+.container.list .user-filter .numeric{
+    width: 45%;
+    margin-right:8px;
+}
+
+.container.list .user-filter input{
+    padding:1px 0;
+    border:none;
+    border-bottom:solid 1px #607D8B;
+}
+

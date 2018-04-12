@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WAP 2018 - navod</title>
+    <link rel="stylesheet" type="text/css" href="general-styles.css">
+</head>
+
+<body>
+
+    <div class="container header">
+        <h1>Výběr zboží (prvek stránky)</h1>
+        <h2>WAP 2018 - návod</h2>
+    </div>
+    <div class="container description">
+        <h3>Obecné informace</h3>
+        <p>
+            Tento dokument slouží jako dokumentace k javascriptovému modulu, který umožňuje filtrování položek seznamu. Modul je možné
+            vyzkoušet na
+            <a href="demo.html">tomto</a> odkazu.
+        </p>
+        <h3>Návod k použití</h3>
+        <p>
+            <ol>
+                <li>
+                    V html dokumentu, kde chcete modul použít jej v hlavičce includujte jako
+                    <span class="code">&lt;script src="filter.js"&gt;&lt;/script&gt;</span>.
+                </li>
+                <li>
+                    Nezapomeňte také includovat css styly jako
+                    <span class="code">&lt;link rel="stylesheet" type="text/css" href="module-styles.css"&gt;</span>. Tyto styly je samozřejmě možné libovolně upravovat. Demo aplikace obsahuje také druhy stylesheet s názvem <span class="code">general-styles.css</span>. Tento soubor však slouží především ke stylování samotného seznamu a tohoto dokumentu - pro běh modulu tedy není nutný.
+                </li>
+                <li>
+                    Modul se volá jedinou metodou a sice metodou
+                    <span class="code">customUserFilter</span>, která přijímá jako jediný paramter konfigurační objekt. Tento konfigurační objekt
+                    má 3 povinné položky:
+                    <ol>
+                        <li>
+                            <span class="code">container</span>
+                        </li>
+                        <li>
+                            <span class="code">item</span>
+                        </li>
+                        <li>
+                            <span class="code">items</span>
+                        </li>
+                    </ol>
+                    kde
+                    <span class="code">container</span> pak jednoznačný identifikátor (id) seznamu, nad kterým má probíhat filtrování. Atribut
+                    <span class="code">item</span> zaznamenává obecný identifikátor (třídu) každé položky seznamu. A items je seznam filtrovaných
+                    atributů ve tvaru
+                    <span class="code">{name: attrClass, type: attrType}</span> nad každou položou seznamu. Zde prvek
+                    <span class="code">name</span> vyjadřuje identifikátor (třídu) filtrovaného atributu v každé položce seznamu. Čili pokud
+                    chceme filtrovat dle atributu
+                    <span class="code">genre</span>, je nutné, aby každá položka seznamu měla třídu
+                    <span class="code">genre</span>, typ je pak volitelný z
+                    <span class="code">string, numeric, enum</span> Položky k výběru pro <span class="code">enum</span> jsou generovány automatizovaně na základě všech hodnot daného typu v seznamu a to i v případě zanořených prvků -> viz bod. 6.
+                </li>
+                <li>
+                    Mějme tedy konfigurační objekt:
+                    <span class="code">config = { <br/>
+                        items: [ <br/>
+                        { name: 'name', type: 'string' }, <br/>
+                        { name: 'year', type: 'numeric' }, <br/>
+                        { name: 'price', type: 'numeric' },<br/>
+                        { name: 'genre', type: 'enum', } ],<br/>
+                        container: 'nejaky-identifikator',<br/>
+                        item: 'item'<br/>
+                        };<br/>
+                    </span>
+                    Zde vidíme, že máme seznam s id <span class="code">nejaky-identifikator</span>, kazda polozka seznamu je uvozena třídou <span class="code">item</span> a obsahuje atributy <span class="code">name, year, price, genre</span>
+                </li>
+                <li>
+                    Po vykreslení DOMu prohlížečem, stačí tedy zavolat popsanou funkci s daným parametrem a je hotovo. Příklad volání ve <span class="code">footer</span> dokumentu:
+                    <span class="code"><br/>
+                        &lt;script&gt;<br/>
+                        window.document.body.onload = function () { customUserFilter(config) };<br/>  
+                        &lt;/script&gt;<br/>
+                    </span>
+                </li>
+                <li>
+                    Jednotlivé atributy mohou obsahovat jak přímo textové, či číselné hodnoty, tak také libovolně vnořené html elementy. Kupříkladu <br/>
+                    <span class="code">
+                        &lt;li class="item"&gt;<br/>
+                        &lt;span class="genre"&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Heavy metal&lt;/li&gt;&lt;li&gt;rock&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;p&gt;poprock&lt;/p&gt;&lt;/span&gt;<br/>
+                        &lt;/li&gt;<br/>
+                    </span>
+                    je tedy validní zápis.
+                </li>
+            </ol>
+        </p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+/* General styles */ 
+/* ----------------------------------------------------------- */
+body{
+    text-align:center;
+    width:100%;
+    margin:0;
+}
+
+h1, h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+}
+
+
+h1{
+    margin-top:0;
+    padding-top:15px;
+    font-size:32px;
+}
+
+h2{
+    font-size:24px;
+}
+
+ul {
+    padding:0;
+    list-style: none;
+}
+
+span.code{
+    font-family: monospace;
+}
+
+/* General container */
+.container{
+    padding: 36px 0;
+    width:100%;
+    float:left;
+}
+
+/* Header container with title and subtitle */
+.container.header{
+    background-color: #607D8B;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+/* List container */
+.container.description{
+    float:left;
+    width: calc(100% - 72px);
+    padding: 36px;
+    text-align: left;
+}
+
+/* List container */
+.container.list{
+    float:left;
+    width: calc(100% - 72px);
+    padding: 36px ;
+}
+
+/* List container descendants*/
+.container.list *{
+    float:left;
+    width: 100%;
+}
+
+/* List container descendants*/
+.container.list > *{
+    margin:auto;
+    width:100%;
+    padding:0;
+}
+
+/* List item */
+.container.list .item {
+    list-style: none;
+    padding-bottom:6px;
+    margin-top:6px;
+    border-bottom:1px solid #ECEFF1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+/* Define witdth of list item attribute */
+.container.list .item > * {
+    width:calc((100%/var(--number-of-attributes)));
+    text-align:left;
+}
+
+

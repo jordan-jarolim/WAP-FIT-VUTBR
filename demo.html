@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WAP 2018 - demo</title>
+    <script src="filter.js"/></script>
+    <link rel="stylesheet" type="text/css" href="general-styles.css">
+    <link rel="stylesheet" type="text/css" href="module-styles.css">
+
+</head>
+
+<body>
+
+    <div class="container header">
+        <h1>Výběr zboží (prvek stránky)</h1>
+        <h2>WAP 2018 - demo</h2>
+    </div>
+    <div class="container list">
+        <ul id="nejaky-identifikator">
+            <li class="item">
+                <span class="name"><div><ul><li>Metallica</li><li>Offspring</li></ul></div></span>
+                <span class="year"><div><ul><li>2100</li><li>2200</li></ul></div></span>
+                <span class="price"><div><ul><li><span>1234</span></li><li>1238</li></ul><span>1111</span></div><p>2222</p></span>
+                <span class="genre"><div><ul><li>Heavy metal</li><li>rock</li></ul></div><p>poprock</p></span>
+            </li>
+            <li class="item">
+                <span class="name">Rise Against</span>
+                <span class="year">2014</span>
+                <span class="price">250</span>
+                <span class="genre">Rock</span>
+            </li>
+            <li class="item">
+                <span class="name">Metallica 2</span>
+                <span class="year">2013</span>
+                <span class="price">100</span>
+                <span class="genre">Metal</span>
+            </li>
+            <li class="item">
+                <span class="name">Mumford and sons</span>
+                <span class="year">2013</span>
+                <span class="price">105</span>
+                <span class="genre">Chill</span>
+            </li>
+            <li class="item">
+                <span class="name">Green Day</span>
+                <span class="year">2008</span>
+                <span class="price">500</span>
+                <span class="genre">Rock</span>
+            </li>
+            <li class="item">
+                <span class="name">U2</span>
+                <span class="year">2019</span>
+                <span class="price">357</span>
+                <span class="genre">Rock</span>
+            </li>
+            <li class="item">
+                <span class="name">Justin Bieber</span>
+                <span class="year">2014</span>
+                <span class="price">90</span>
+                <span class="genre"><div><ul><li>Pop</li><li>rock</li><li>poprock</li></ul></div><p>justinstyle</p></span>
+            </li>
+        </ul>
+    </div>
+
+</body>
+<footer>
+    <span>Návod dostupný <a href="navod.html">zde</a>.</span>
+    <script>
+        var config = {
+            items: [
+                {
+                    name: 'name',
+                    type: 'string'
+                },
+                {
+                    name: 'year',
+                    type: 'numeric'
+                },
+                {
+                    name: 'price',
+                    type: 'numeric'
+                },
+                {
+                    name: 'genre',
+                    type: 'enum',
+                }
+            ],
+            container: 'nejaky-identifikator',
+            item: 'item'
+        };
+
+        window.document.body.onload = function () { customUserFilter(config) };    
+    </script>
+</footer>
+
+</html>
